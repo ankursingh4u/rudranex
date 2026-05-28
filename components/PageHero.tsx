@@ -54,13 +54,13 @@ export function PageHero({
         aria-hidden
       />
       <div className="page-hero-orbit pointer-events-none absolute inset-0 opacity-70" aria-hidden />
-      <div className="site-container relative z-10 py-28 sm:py-34 lg:py-36">
+      <div className="site-container relative z-10 pt-24 pb-14 sm:pt-28 sm:pb-18 lg:pt-32 lg:pb-20">
         <div
-          className={`grid gap-10 items-end ${hasAside ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]" : ""}`}
+          className={`grid gap-8 sm:gap-10 items-end ${hasAside ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]" : ""}`}
         >
           <Reveal className="max-w-3xl">
             <p className="font-body text-xs tracking-[0.3em] text-cobalt mb-4">{eyebrow}</p>
-            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.04] tracking-tight">
+            <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-[1.04] tracking-tight">
               {title}
             </h1>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-foam/75 leading-relaxed">{body}</p>

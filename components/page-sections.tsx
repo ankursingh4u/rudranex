@@ -54,14 +54,96 @@ function MediaPanel({
 
 function FounderNote() {
   return (
-    <div className="story-panel story-panel-accent rounded-[1.75rem] p-7 sm:p-8">
-      <p className="text-[11px] uppercase tracking-[0.28em] text-cobalt mb-4">{aboutPageContent.founder.label}</p>
-      <h2 className="font-display text-2xl font-bold leading-tight mb-4">{aboutPageContent.founder.title}</h2>
-      <p className="text-sm leading-relaxed text-foam/68 mb-6">{aboutPageContent.founder.body}</p>
-      <blockquote className="border-l border-cobalt/40 pl-4 text-sm italic text-foam/78">
-        “{aboutPageContent.founder.quote}”
-      </blockquote>
-      <p className="mt-5 text-xs tracking-[0.24em] uppercase text-foam/45">Jatin Prajapati · Founder & CEO</p>
+    <div
+      className="relative overflow-hidden rounded-2xl border border-white/10 flex flex-col"
+      style={{
+        background:
+          "linear-gradient(155deg, rgba(37,99,235,0.13) 0%, rgba(26,31,43,0.97) 45%, rgba(124,58,237,0.09) 100%)",
+      }}
+    >
+      {/* Photo header */}
+      <div className="relative overflow-hidden" style={{ height: "160px" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+          alt="Jatin Prajapati — Founder & CEO, Rudranex"
+          className="w-full h-full object-cover object-top"
+        />
+        {/* Bottom gradient fade */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,1,23,0.1) 0%, rgba(0,1,23,0.0) 35%, rgba(26,31,43,0.98) 100%)",
+          }}
+        />
+        {/* Cobalt tint overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(37,99,235,0.18) 0%, transparent 60%)",
+          }}
+        />
+        {/* Name badge pinned to bottom */}
+        <div className="absolute bottom-3 left-4">
+          <p className="font-display font-bold text-base sm:text-lg text-foam leading-tight">
+            Jatin Prajapati
+          </p>
+          <p className="text-[9px] sm:text-[10px] tracking-[0.22em] text-cobalt uppercase mt-0.5">
+            Founder &amp; CEO · Rudranex
+          </p>
+        </div>
+        {/* Verified badge */}
+        <div className="absolute top-4 right-4 flex items-center gap-1.5 rounded-full border border-cobalt/40 bg-ink/70 px-3 py-1.5 backdrop-blur-sm">
+          <span className="text-cobalt text-xs">✦</span>
+          <span className="text-[10px] tracking-[0.18em] text-foam/70 uppercase">Founder</span>
+        </div>
+      </div>
+
+      {/* Quote body */}
+      <div className="p-5 sm:p-6 flex-1">
+        {/* Decorative opening quote */}
+        <div
+          className="font-serif leading-none mb-2 select-none text-4xl sm:text-5xl"
+          style={{ color: "rgba(37,99,235,0.35)", lineHeight: 1 }}
+          aria-hidden
+        >
+          &ldquo;
+        </div>
+
+        <blockquote className="text-xs sm:text-sm leading-relaxed text-foam/85 italic mb-4 line-clamp-4 sm:line-clamp-none">
+          {aboutPageContent.founder.quote}
+        </blockquote>
+
+        <p className="hidden sm:block text-xs text-foam/50 leading-relaxed line-clamp-3">
+          {aboutPageContent.founder.body}
+        </p>
+      </div>
+
+      {/* Bottom gradient accent bar */}
+      <div
+        className="mx-5 mb-5 h-px rounded-full"
+        style={{
+          background:
+            "linear-gradient(to right, #2563eb, #7c3aed 50%, transparent)",
+        }}
+      />
+
+      {/* CTA row */}
+      <div className="px-5 pb-5 flex items-center justify-between">
+        <p className="text-[10px] tracking-[0.22em] uppercase text-foam/40">
+          {aboutPageContent.founder.label}
+        </p>
+        <a
+          href="https://wa.me/917725971086"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] tracking-[0.18em] uppercase text-cobalt hover:text-foam transition-colors"
+        >
+          Say hello →
+        </a>
+      </div>
     </div>
   );
 }
@@ -500,7 +582,7 @@ function ContactDecisionBlock() {
                   <li key={step}>• {step}</li>
                 ))}
               </ul>
-              <p className="text-sm text-foam/82 italic">“{contactPageContent.founderNote}”</p>
+              <p className="text-sm text-foam/82 italic">"{contactPageContent.founderNote}"</p>
             </div>
           </div>
         </Reveal>
