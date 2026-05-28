@@ -1,0 +1,21 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#040816"/>
+  <circle cx="280" cy="240" r="220" fill="#7C3AED" fill-opacity="0.18"/>
+  <circle cx="1320" cy="980" r="260" fill="#2563EB" fill-opacity="0.18"/>
+  <rect x="94" y="94" width="1412" height="1012" rx="38" fill="#071120" stroke="rgba(255,255,255,0.12)"/>
+  <text x="168" y="214" fill="#60A5FA" font-family="Arial, sans-serif" font-size="30" letter-spacing="8">INQUIRY DESK</text>
+  <text x="168" y="300" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="70" font-weight="700">Turn a message into a clear next step.</text>
+  <rect x="168" y="388" width="1264" height="618" rx="34" fill="#081425" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="226" y="448" width="596" height="498" rx="28" fill="#0A1324" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="274" y="520" width="220" height="12" rx="6" fill="#CBD5E1" fill-opacity="0.74"/>
+  <rect x="274" y="566" width="500" height="86" rx="20" fill="#111827"/>
+  <rect x="274" y="690" width="500" height="160" rx="22" fill="#111827"/>
+  <rect x="890" y="448" width="482" height="498" rx="28" fill="#0C1830" stroke="rgba(255,255,255,0.08)"/>
+  <text x="944" y="530" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="30">Direct channels</text>
+  <rect x="944" y="590" width="374" height="82" rx="20" fill="#081425" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="944" y="702" width="374" height="82" rx="20" fill="#081425" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="944" y="814" width="374" height="82" rx="20" fill="#081425" stroke="rgba(255,255,255,0.08)"/>
+  <text x="990" y="641" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="24">Email with full project context</text>
+  <text x="990" y="753" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="24">WhatsApp for quick alignment</text>
+  <text x="990" y="865" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="24">Clear response within one business day</text>
+</svg>

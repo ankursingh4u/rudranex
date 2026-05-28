@@ -1,0 +1,32 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#040816"/>
+  <rect x="92" y="88" width="1416" height="1024" rx="40" fill="#061120" stroke="rgba(255,255,255,0.12)"/>
+  <circle cx="1254" cy="236" r="240" fill="#2563EB" fill-opacity="0.18"/>
+  <circle cx="332" cy="930" r="250" fill="#7C3AED" fill-opacity="0.16"/>
+  <text x="170" y="210" fill="#60A5FA" font-family="Arial, sans-serif" font-size="30" letter-spacing="8">CONFIDENTIAL TRANSFORMATION</text>
+  <text x="170" y="298" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="68" font-weight="700">Show the change, even when the client stays private.</text>
+  <rect x="170" y="374" width="1264" height="640" rx="34" fill="#081425" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="220" y="430" width="350" height="528" rx="28" fill="#0B1628" stroke="rgba(255,255,255,0.08)"/>
+  <text x="264" y="506" fill="#A78BFA" font-family="Arial, sans-serif" font-size="24" letter-spacing="4">BEFORE</text>
+  <rect x="264" y="560" width="252" height="16" rx="8" fill="#CBD5E1" fill-opacity="0.75"/>
+  <rect x="264" y="608" width="220" height="16" rx="8" fill="#94A3B8" fill-opacity="0.54"/>
+  <rect x="264" y="700" width="256" height="126" rx="22" fill="#1F2937"/>
+  <rect x="612" y="430" width="350" height="528" rx="28" fill="#0C1830" stroke="rgba(255,255,255,0.08)"/>
+  <text x="656" y="506" fill="#60A5FA" font-family="Arial, sans-serif" font-size="24" letter-spacing="4">SYSTEM SHIFT</text>
+  <path d="M686 638H886" stroke="#60A5FA" stroke-width="3" stroke-dasharray="10 10"/>
+  <circle cx="716" cy="638" r="14" fill="#2563EB"/>
+  <circle cx="786" cy="638" r="14" fill="#7C3AED"/>
+  <circle cx="856" cy="638" r="14" fill="#93C5FD"/>
+  <rect x="656" y="744" width="256" height="132" rx="22" fill="url(#shift)"/>
+  <rect x="1004" y="430" width="380" height="528" rx="28" fill="#0A1324" stroke="rgba(255,255,255,0.08)"/>
+  <text x="1048" y="506" fill="#93C5FD" font-family="Arial, sans-serif" font-size="24" letter-spacing="4">AFTER</text>
+  <text x="1048" y="592" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="30">Operational visibility</text>
+  <text x="1048" y="660" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="30">Fewer handoffs</text>
+  <text x="1048" y="728" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="30">Extendable platform</text>
+  <defs>
+    <linearGradient id="shift" x1="656" y1="744" x2="912" y2="876" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D4ED8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0.26"/>
+    </linearGradient>
+  </defs>
+</svg>

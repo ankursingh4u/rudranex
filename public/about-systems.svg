@@ -1,0 +1,46 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#030516"/>
+  <rect x="88" y="88" width="1424" height="1024" rx="40" fill="url(#bg)" stroke="rgba(255,255,255,0.12)"/>
+  <g opacity="0.28">
+    <path d="M160 260H1440" stroke="#94A3FF" stroke-width="1"/>
+    <path d="M160 520H1440" stroke="#94A3FF" stroke-width="1"/>
+    <path d="M160 780H1440" stroke="#94A3FF" stroke-width="1"/>
+    <path d="M420 140V1060" stroke="#94A3FF" stroke-width="1"/>
+    <path d="M800 140V1060" stroke="#94A3FF" stroke-width="1"/>
+    <path d="M1180 140V1060" stroke="#94A3FF" stroke-width="1"/>
+  </g>
+  <rect x="220" y="224" width="430" height="220" rx="28" fill="url(#panel1)" stroke="#2F4FE0"/>
+  <rect x="712" y="188" width="640" height="320" rx="34" fill="url(#panel2)" stroke="#5B3BE7"/>
+  <rect x="248" y="596" width="1120" height="300" rx="34" fill="url(#panel3)" stroke="rgba(255,255,255,0.16)"/>
+  <circle cx="355" cy="334" r="26" fill="#78A6FF"/>
+  <circle cx="790" cy="350" r="18" fill="#7C3AED"/>
+  <circle cx="860" cy="350" r="18" fill="#2563EB"/>
+  <circle cx="930" cy="350" r="18" fill="#A78BFA"/>
+  <path d="M475 334H585" stroke="#D8E2FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M790 410H1260" stroke="#D8E2FF" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+  <path d="M790 452H1110" stroke="#9DB4FF" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <path d="M320 690H1260" stroke="#DDE5FF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M320 750H1080" stroke="#AFC2FF" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <path d="M320 808H960" stroke="#8FA8FF" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+  <rect x="1118" y="655" width="178" height="178" rx="30" fill="rgba(37,99,235,0.18)" stroke="#4F77FF"/>
+  <path d="M1160 744H1254" stroke="#EEF2FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M1207 697V791" stroke="#EEF2FF" stroke-width="12" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bg" x1="88" y1="88" x2="1512" y2="1112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#08122E"/>
+      <stop offset="1" stop-color="#100824"/>
+    </linearGradient>
+    <linearGradient id="panel1" x1="220" y1="224" x2="650" y2="444" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#133A95"/>
+      <stop offset="1" stop-color="#0A1738"/>
+    </linearGradient>
+    <linearGradient id="panel2" x1="712" y1="188" x2="1352" y2="508" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#24195A"/>
+      <stop offset="1" stop-color="#0A1738"/>
+    </linearGradient>
+    <linearGradient id="panel3" x1="248" y1="596" x2="1368" y2="896" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#09152E"/>
+      <stop offset="1" stop-color="#16112F"/>
+    </linearGradient>
+  </defs>
+</svg>

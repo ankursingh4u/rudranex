@@ -1,0 +1,31 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#030712"/>
+  <circle cx="250" cy="210" r="210" fill="#2563EB" fill-opacity="0.18"/>
+  <circle cx="1350" cy="980" r="240" fill="#7C3AED" fill-opacity="0.18"/>
+  <rect x="88" y="96" width="1424" height="1008" rx="38" fill="#071120" stroke="rgba(255,255,255,0.12)"/>
+  <text x="164" y="212" fill="#60A5FA" font-family="Arial, sans-serif" font-size="30" letter-spacing="8">SOLUTION ENVIRONMENTS</text>
+  <text x="164" y="300" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="70" font-weight="700">Map the pressure points before the wrong build begins.</text>
+  <rect x="164" y="380" width="1272" height="620" rx="34" fill="#091425" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="230" y="450" width="250" height="130" rx="24" fill="#0B1D31" stroke="rgba(255,255,255,0.08)"/>
+  <text x="272" y="526" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="26">Ops visibility</text>
+  <rect x="642" y="434" width="300" height="166" rx="28" fill="#0D1B2C" stroke="rgba(255,255,255,0.10)"/>
+  <text x="698" y="522" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="28">Platform scale</text>
+  <rect x="1110" y="458" width="256" height="118" rx="22" fill="#111827" stroke="rgba(255,255,255,0.08)"/>
+  <text x="1148" y="528" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="26">Automation flow</text>
+  <rect x="320" y="724" width="270" height="138" rx="24" fill="#111827" stroke="rgba(255,255,255,0.08)"/>
+  <text x="360" y="804" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="26">Customer product</text>
+  <rect x="956" y="714" width="334" height="160" rx="28" fill="#0D1B2C" stroke="rgba(255,255,255,0.10)"/>
+  <text x="1012" y="804" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="28">Modernization path</text>
+  <path d="M480 516C564 516 564 516 642 516" stroke="#60A5FA" stroke-width="3" stroke-dasharray="10 10"/>
+  <path d="M942 516C1018 516 1032 516 1110 516" stroke="#A78BFA" stroke-width="3" stroke-dasharray="10 10"/>
+  <path d="M792 600C792 658 792 668 792 724" stroke="#93C5FD" stroke-width="3" stroke-dasharray="10 10"/>
+  <path d="M590 794C694 794 824 794 956 794" stroke="#60A5FA" stroke-width="3" stroke-dasharray="10 10"/>
+  <circle cx="792" cy="642" r="84" fill="url(#hub)"/>
+  <text x="732" y="650" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="24">RDX</text>
+  <defs>
+    <radialGradient id="hub" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(792 642) rotate(90) scale(84)">
+      <stop stop-color="#2563EB" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0.2"/>
+    </radialGradient>
+  </defs>
+</svg>

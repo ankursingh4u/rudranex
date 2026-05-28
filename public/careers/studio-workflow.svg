@@ -1,0 +1,24 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#050816"/>
+  <circle cx="1260" cy="240" r="250" fill="#2563EB" fill-opacity="0.18"/>
+  <circle cx="340" cy="960" r="250" fill="#7C3AED" fill-opacity="0.16"/>
+  <rect x="100" y="100" width="1400" height="1000" rx="40" fill="#071121" stroke="rgba(255,255,255,0.12)"/>
+  <text x="176" y="216" fill="#60A5FA" font-family="Arial, sans-serif" font-size="30" letter-spacing="8">WORK ENVIRONMENT</text>
+  <text x="176" y="300" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="68" font-weight="700">Own the craft. Keep the delivery calm.</text>
+  <rect x="176" y="394" width="1248" height="612" rx="34" fill="#081425" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="238" y="458" width="404" height="486" rx="28" fill="#0B1628"/>
+  <text x="290" y="534" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="30">Deep work windows</text>
+  <rect x="290" y="590" width="294" height="14" rx="7" fill="#CBD5E1" fill-opacity="0.76"/>
+  <rect x="290" y="632" width="238" height="14" rx="7" fill="#94A3B8" fill-opacity="0.58"/>
+  <rect x="730" y="458" width="632" height="486" rx="28" fill="#0A1324"/>
+  <path d="M804 734H1264" stroke="#475569" stroke-width="2"/>
+  <circle cx="860" cy="734" r="16" fill="#2563EB"/>
+  <circle cx="1034" cy="734" r="16" fill="#7C3AED"/>
+  <circle cx="1212" cy="734" r="16" fill="#93C5FD"/>
+  <text x="820" y="646" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="24">Clarity</text>
+  <text x="996" y="646" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="24">Ownership</text>
+  <text x="1168" y="646" fill="#E2E8F0" font-family="Arial, sans-serif" font-size="24">Judgment</text>
+  <rect x="812" y="796" width="168" height="64" rx="18" fill="#0F1E35" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="1010" y="796" width="168" height="64" rx="18" fill="#0F1E35" stroke="rgba(255,255,255,0.08)"/>
+  <rect x="1208" y="796" width="108" height="64" rx="18" fill="#0F1E35" stroke="rgba(255,255,255,0.08)"/>
+</svg>
