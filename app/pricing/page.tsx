@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Fragment } from "react";
 
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -158,8 +159,8 @@ export default function PricingPage() {
                   </thead>
                   <tbody>
                     {featureMatrix.map((group) => (
-                      <>
-                        <tr key={`${group.category}-header`} className="bg-white/[0.025]">
+                      <Fragment key={group.category}>
+                        <tr className="bg-white/[0.025]">
                           <td colSpan={4} className="px-6 py-3 text-[10px] tracking-[0.28em] uppercase text-cobalt/70">
                             {group.category}
                           </td>
@@ -172,7 +173,7 @@ export default function PricingPage() {
                             <MatrixCell value={row.partner} />
                           </tr>
                         ))}
-                      </>
+                      </Fragment>
                     ))}
                   </tbody>
                 </table>

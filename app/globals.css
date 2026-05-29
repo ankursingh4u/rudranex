@@ -8,7 +8,7 @@
   --color-violet: #7c3aed;
 
   --font-display: "Trebuchet MS", "Segoe UI", sans-serif;
-  --font-body: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-inter), "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 :root {
@@ -519,6 +519,20 @@ body::after {
   transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(245,245,245,0.5)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.form-field select option {
+  background: #1a1f2b;
+  color: #f5f5f5;
+}
+
 .form-field input::placeholder,
 .form-field textarea::placeholder {
   color: rgba(245, 245, 245, 0.38);
@@ -555,6 +569,14 @@ body::after {
   background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, rgba(37, 99, 235, 0.14) 42%, transparent 72%);
   filter: blur(14px);
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .story-grid-alt {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {

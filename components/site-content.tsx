@@ -395,40 +395,63 @@ export const contactDetails = {
 
 export const mediaLibrary = {
   about: {
-    hero: "/about/hero-story.svg",
-    storyPrimary: "/about-systems.svg",
-    storySecondary: "/services-architecture.svg",
+    // Team collaborating at modern workspace
+    hero: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+    // Code architecture on dark monitor
+    storyPrimary: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    // Focused whiteboard strategy session
+    storySecondary: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
   },
   services: {
-    hero: "/services/platform-band.svg",
-    engineering: "/services/platform-band.svg",
-    mobile: "/contact/command-desk.svg",
-    cloud: "/solutions/ops-map.svg",
-    automation: "/case-studies/transformation-board.svg",
-    ux: "/about/hero-story.svg",
-    teams: "/careers/studio-workflow.svg",
+    // Developer dual-monitor setup
+    hero: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+    // Clean code on laptop screen
+    engineering: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    // Hands on smartphone UI
+    mobile: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+    // Glowing server rack in datacenter
+    cloud: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80",
+    // AI / neural-network visualization
+    automation: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=800&q=80",
+    // Design wireframes and tablet
+    ux: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80",
+    // Cross-functional team standup
+    teams: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
   },
   solutions: {
-    hero: "/solutions/ops-map.svg",
-    operations: "/case-studies/transformation-board.svg",
-    product: "/about/hero-story.svg",
-    automation: "/services/platform-band.svg",
-    scale: "/solutions/ops-map.svg",
+    // Satellite / global connectivity
+    hero: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    // Analytics dashboard on monitor
+    operations: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    // Product UI on screen, design-focused
+    product: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?auto=format&fit=crop&w=800&q=80",
+    // Circuit board close-up (hardware automation)
+    automation: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    // Blue network cables / infrastructure
+    scale: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80",
   },
   caseStudies: {
-    hero: "/case-studies/transformation-board.svg",
-    spotlight: "/case-studies/transformation-board.svg",
-    saas: "/about/hero-story.svg",
-    ai: "/services/platform-band.svg",
-    experience: "/contact/command-desk.svg",
+    // Aerial city view — global scale
+    hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    // Team in focused review session
+    spotlight: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    // Dark-theme SaaS product code
+    saas: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=800&q=80",
+    // Digital data matrix / ML
+    ai: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80",
+    // Premium office interior / experience
+    experience: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
   },
   careers: {
-    hero: "/careers/studio-workflow.svg",
-    culture: "/careers/studio-workflow.svg",
+    // Person coding at clean desk
+    hero: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=800&q=80",
+    // Open-plan modern tech office
+    culture: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80",
   },
   contact: {
-    hero: "/contact/command-desk.svg",
-    desk: "/contact/command-desk.svg",
+    // Person typing on laptop, communication
+    hero: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+    desk: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
   },
 } as const;
 

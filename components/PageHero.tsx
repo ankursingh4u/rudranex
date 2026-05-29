@@ -19,6 +19,7 @@ function HeroMedia({ src, alt }: HeroMediaProps) {
           fill
           sizes="(min-width: 1024px) 32rem, 90vw"
           className="object-cover"
+          unoptimized
         />
         <div className="hero-visual-glow pointer-events-none absolute inset-x-0 bottom-0 h-1/2" aria-hidden />
       </div>
@@ -56,7 +57,7 @@ export function PageHero({
       <div className="page-hero-orbit pointer-events-none absolute inset-0 opacity-70" aria-hidden />
       <div className="site-container relative z-10 pt-24 pb-14 sm:pt-28 sm:pb-18 lg:pt-32 lg:pb-20">
         <div
-          className={`grid gap-8 sm:gap-10 items-end ${hasAside ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]" : ""}`}
+          className={`grid gap-8 sm:gap-10 items-start ${hasAside ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]" : ""}`}
         >
           <Reveal className="max-w-3xl">
             <p className="font-body text-xs tracking-[0.3em] text-cobalt mb-4">{eyebrow}</p>

@@ -39,7 +39,7 @@ function MediaPanel({
       <div className="media-panel-inner relative overflow-hidden rounded-[1.45rem] border border-white/10 bg-ink/80">
         <div className="media-panel-grid pointer-events-none absolute inset-0" aria-hidden />
         <div className={`${compact ? "aspect-[16/10]" : "aspect-[5/4]"} relative`}>
-          <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 30rem, 100vw" className="object-contain p-4" unoptimized />
+          <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 30rem, 100vw" className="object-cover" unoptimized />
         </div>
         {(badge || stat) ? (
           <div className="absolute inset-x-4 bottom-4 flex flex-wrap items-end justify-between gap-3">
@@ -62,12 +62,12 @@ function FounderNote() {
       }}
     >
       {/* Photo header */}
-      <div className="relative overflow-hidden" style={{ height: "160px" }}>
+      <div className="relative overflow-hidden" style={{ height: "200px" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&crop=faces&w=600&h=400&q=80"
           alt="Jatin Prajapati — Founder & CEO, Rudranex"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-[center_10%]"
         />
         {/* Bottom gradient fade */}
         <div

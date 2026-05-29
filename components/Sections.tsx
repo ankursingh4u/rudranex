@@ -25,9 +25,9 @@ export function TrustStrip() {
   return (
     <section className="border-y border-white/5 bg-graphite/30 py-5 overflow-hidden">
       <div className="relative group">
-        <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[color:var(--color-graphite)]/70 to-transparent z-10" />
-        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[color:var(--color-graphite)]/70 to-transparent z-10" />
-        <ul className="flex gap-10 w-max text-xs tracking-[0.35em] text-foam/60 uppercase group-hover:[animation-play-state:paused]" style={{ animation: "marquee 24s linear infinite" }}>
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-graphite/70 to-transparent z-10" />
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-graphite/70 to-transparent z-10" />
+        <ul className="flex gap-10 w-max text-xs tracking-[0.35em] text-foam/60 uppercase [animation:marquee_24s_linear_infinite] group-hover:[animation-play-state:paused]">
           {loop.map((item, i) => (
             <li key={`${item}-${i}`} className="shrink-0">{item}</li>
           ))}
@@ -223,10 +223,10 @@ export function Technologies() {
       </Reveal>
 
       <div className="relative group mb-12">
-        <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[color:var(--color-graphite)]/60 to-transparent z-10" />
-        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[color:var(--color-graphite)]/60 to-transparent z-10" />
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-graphite/60 to-transparent z-10" />
+        <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-graphite/60 to-transparent z-10" />
 
-        <ul className="flex gap-4 w-max group-hover:[animation-play-state:paused]" style={{ animation: "marquee 30s linear infinite" }}>
+        <ul className="flex gap-4 w-max [animation:marquee_30s_linear_infinite] group-hover:[animation-play-state:paused]">
           {loop.map((item, i) => (
             <li key={`${item}-${i}`} className="shrink-0 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-foam/80 hover:border-cobalt/50 hover:text-foam transition-colors">
               {item}
@@ -397,32 +397,30 @@ export function VideoShowcase() {
           </Reveal>
 
           {/* Right: floating metric cards */}
-          <Reveal delay={120}>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { num: "500+", label: "Projects delivered", icon: "🚀" },
-                { num: "40+", label: "Countries served", icon: "🌍" },
-                { num: "98%", label: "Client satisfaction", icon: "⭐" },
-                { num: "24h", label: "Response time", icon: "⚡" },
-              ].map((item, i) => (
-                <Reveal key={item.label} delay={i * 80}>
-                  <div
-                    className="rounded-2xl border border-white/12 p-5 sm:p-6 text-center backdrop-blur-sm"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(37,99,235,0.12), rgba(124,58,237,0.06))",
-                    }}
-                  >
-                    <div className="text-2xl mb-2">{item.icon}</div>
-                    <div className="font-display font-bold text-3xl sm:text-4xl text-shimmer mb-1">
-                      {item.num}
-                    </div>
-                    <p className="text-[10px] tracking-[0.18em] text-foam/50 uppercase">{item.label}</p>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              { num: "500+", label: "Projects delivered", icon: "🚀" },
+              { num: "40+", label: "Countries served", icon: "🌍" },
+              { num: "98%", label: "Client satisfaction", icon: "⭐" },
+              { num: "24h", label: "Response time", icon: "⚡" },
+            ].map((item, i) => (
+              <Reveal key={item.label} delay={120 + i * 80}>
+                <div
+                  className="rounded-2xl border border-white/12 p-5 sm:p-6 text-center backdrop-blur-sm"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(37,99,235,0.12), rgba(124,58,237,0.06))",
+                  }}
+                >
+                  <div className="text-2xl mb-2">{item.icon}</div>
+                  <div className="font-display font-bold text-3xl sm:text-4xl text-shimmer mb-1">
+                    {item.num}
                   </div>
-                </Reveal>
-              ))}
-            </div>
-          </Reveal>
+                  <p className="text-[10px] tracking-[0.18em] text-foam/50 uppercase">{item.label}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -430,10 +428,14 @@ export function VideoShowcase() {
 }
 
 const capPhotos = [
-  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=75",
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=75",
-  "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=75",
-  "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=600&q=75",
+  // IT consulting — strategy whiteboard session
+  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
+  // Global setup — aerial city skyline
+  "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=600&q=80",
+  // Digital marketing — analytics growth chart
+  "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=600&q=80",
+  // Product roadmap — planning post-its on glass
+  "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&w=600&q=80",
 ];
 
 export function GlobalCapabilities() {
