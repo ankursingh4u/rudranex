@@ -84,16 +84,16 @@ export function Team() {
           The people who <em>build</em> it.
         </LineReveal>
 
-        <div className="mx-auto mt-10 grid max-w-[620px] gap-6 md:grid-cols-2" style={{ perspective: "1400px" }}>
+        <div className="mx-auto mt-10 flex max-w-4xl flex-col gap-6" style={{ perspective: "1600px" }}>
           {TEAM.members.map((m) => {
             const isLink = Boolean(m.link);
             const common =
-              "team-card group block h-full rounded-[18px] [transform-style:preserve-3d]";
+              "team-card group block rounded-[18px] [transform-style:preserve-3d]";
             const inner = (
               <div
-                className="team-tilt flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-ink-2 transition-colors duration-[350ms] [transform-style:preserve-3d] group-hover:border-[rgba(61,125,255,0.5)]"
+                className="team-tilt flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-ink-2 transition-colors duration-[350ms] [transform-style:preserve-3d] group-hover:border-[rgba(61,125,255,0.5)] sm:flex-row"
               >
-                <div className="relative h-[clamp(200px,26vh,300px)] overflow-hidden">
+                <div className="relative aspect-square w-full overflow-hidden sm:w-[40%] sm:shrink-0">
                   <img
                     src={m.img}
                     alt={m.name}
@@ -102,7 +102,7 @@ export function Team() {
                   />
                 </div>
 
-                <div className="flex flex-1 flex-col p-5" style={{ transform: "translateZ(30px)" }}>
+                <div className="flex flex-1 flex-col p-6" style={{ transform: "translateZ(30px)" }}>
                   <div className="border-b border-line pb-4">
                     <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ember">{m.role}</p>
                     <BlurText
