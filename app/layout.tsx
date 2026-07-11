@@ -1,32 +1,50 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { Cursor } from "@/components/global/Cursor";
+import { ScrollProgress } from "@/components/global/ScrollProgress";
+import { SectionStacking } from "@/components/global/SectionStacking";
 
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-jetbrains",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: {
-    default: "Rudranex — Enterprise Software Development Company",
-    template: "%s | Rudranex",
-  },
+  title: "Rudranex — Building Digital Solutions for the Next Era",
   description:
-    "Rudranex designs and builds enterprise-grade software, digital products, cloud systems, and scalable platforms for ambitious businesses.",
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
-  },
+    "We build powerful, scalable and innovative digital solutions that drive business growth and create meaningful impact — globally.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`h-full antialiased ${inter.variable}`}>
-      <body className="min-h-full flex flex-col bg-ink text-foam font-body">
-        {children}
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body>
+        <div className="grain" aria-hidden />
+        <SmoothScroll>
+          <Cursor />
+          <ScrollProgress />
+          <SectionStacking />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
