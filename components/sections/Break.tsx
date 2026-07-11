@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { NetworkBg } from "@/components/ui/network-bg";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -39,10 +40,6 @@ export function Break() {
         return;
       }
 
-      // ambient aurora drift — independent of scroll
-      gsap.to(".brk-glow-a", { xPercent: 22, yPercent: -16, duration: 14, repeat: -1, yoyo: true, ease: "sine.inOut" });
-      gsap.to(".brk-glow-b", { xPercent: -20, yPercent: 14, duration: 18, repeat: -1, yoyo: true, ease: "sine.inOut" });
-
       const n = lines.length;
       const build = (slot: number) => {
         gsap.set(lines, { opacity: 0, y: 64, filter: "blur(16px)", scale: 0.95 });
@@ -71,9 +68,6 @@ export function Break() {
             );
           }
         });
-        // background hue/position drift + progress bar span the whole timeline
-        tl.fromTo(".brk-progress", { scaleX: 0 }, { scaleX: 1, ease: "none", duration: n }, 0);
-        tl.fromTo(".brk-bg", { backgroundPosition: "50% 0%" }, { backgroundPosition: "50% 100%", ease: "none", duration: n }, 0);
         return () => tl.scrollTrigger?.kill();
       };
 
@@ -91,42 +85,24 @@ export function Break() {
       data-no-stack
       className="relative flex h-screen items-center justify-center overflow-hidden"
     >
-      {/* base + drifting gradient wash */}
+      {/* deep base */}
+      <div aria-hidden className="absolute inset-0 bg-ink" />
+      {/* live software-network canvas */}
+      <NetworkBg className="absolute inset-0 h-full w-full" />
+      {/* subtle depth glow */}
       <div
         aria-hidden
-        className="brk-bg absolute inset-0 bg-ink"
+        className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(120% 80% at 50% -10%, rgba(61,125,255,0.16), transparent 60%), radial-gradient(100% 80% at 50% 120%, rgba(61,125,255,0.10), transparent 60%)",
-          backgroundSize: "100% 200%",
-        }}
-      />
-      {/* aurora blobs */}
-      <div
-        aria-hidden
-        className="brk-glow-a pointer-events-none absolute -left-[12%] top-[6%] h-[72vh] w-[72vh] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(61,125,255,0.30), transparent 70%)", filter: "blur(50px)" }}
-      />
-      <div
-        aria-hidden
-        className="brk-glow-b pointer-events-none absolute -right-[8%] bottom-[2%] h-[64vh] w-[64vh] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(88,150,255,0.20), transparent 70%)", filter: "blur(60px)" }}
-      />
-      {/* fine grid + grain texture */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(233,238,248,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(233,238,248,0.6) 1px, transparent 1px)",
-          backgroundSize: "44px 44px",
+            "radial-gradient(90% 70% at 50% -10%, rgba(61,125,255,0.14), transparent 60%)",
         }}
       />
       {/* vignette for legibility */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(120% 100% at 50% 50%, transparent, rgba(7,11,20,0.78))" }}
+        style={{ background: "radial-gradient(120% 100% at 50% 50%, rgba(7,11,20,0.15), rgba(7,11,20,0.82))" }}
       />
 
       <p className="eyebrow absolute top-[14vh] left-1/2 z-10 -translate-x-1/2 text-center">
@@ -144,11 +120,6 @@ export function Break() {
             {l.plain} <em>{l.em}</em>
           </h2>
         ))}
-      </div>
-
-      {/* scroll progress bar */}
-      <div aria-hidden className="absolute bottom-[10vh] left-1/2 z-10 h-px w-[min(38vw,360px)] -translate-x-1/2 overflow-hidden bg-line">
-        <div className="brk-progress h-full w-full origin-left bg-ember" style={{ transform: "scaleX(0)" }} />
       </div>
     </section>
   );
