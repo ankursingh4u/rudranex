@@ -84,7 +84,7 @@ export function Team() {
           The people who <em>build</em> it.
         </LineReveal>
 
-        <div className="mx-auto mt-14 grid max-w-[620px] gap-6 md:grid-cols-2" style={{ perspective: "1400px" }}>
+        <div className="mx-auto mt-10 grid max-w-[620px] gap-6 md:grid-cols-2" style={{ perspective: "1400px" }}>
           {TEAM.members.map((m) => {
             const isLink = Boolean(m.link);
             const common =
@@ -93,7 +93,7 @@ export function Team() {
               <div
                 className="team-tilt flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-ink-2 transition-colors duration-[350ms] [transform-style:preserve-3d] group-hover:border-[rgba(61,125,255,0.5)]"
               >
-                <div className="relative aspect-square overflow-hidden">
+                <div className="relative h-[clamp(200px,26vh,300px)] overflow-hidden">
                   <img
                     src={m.img}
                     alt={m.name}

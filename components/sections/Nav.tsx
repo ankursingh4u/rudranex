@@ -137,7 +137,15 @@ export function Nav() {
     setOpen(false);
     const el = href === "#top" ? document.body : document.querySelector(href);
     if (!el) return;
-    if (lenis) lenis.scrollTo(el as HTMLElement, { offset: -76, duration: 1.4 });
+    // Land the section's heading just below the 76px nav by eating most of the
+    // section's top padding — otherwise the heading floats far down (or, on a
+    // short screen, the oversized content clips under the bar).
+    let offset = -76;
+    if (el !== document.body) {
+      const padTop = parseFloat(getComputedStyle(el as Element).paddingTop) || 0;
+      offset = padTop - 76 - 22;
+    }
+    if (lenis) lenis.scrollTo(el as HTMLElement, { offset, duration: 1.4 });
     else (el as HTMLElement).scrollIntoView({ behavior: "smooth" });
   };
 
