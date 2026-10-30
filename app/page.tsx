@@ -2,6 +2,7 @@ import { Preloader } from "@/components/sections/Preloader";
 import { Nav } from "@/components/sections/Nav";
 import AetherFlowHero from "@/components/ui/aether-flow-hero";
 import { Marquee } from "@/components/sections/Marquee";
+import { WalkIn } from "@/components/sections/WalkIn";
 import { Capabilities } from "@/components/sections/Capabilities";
 import { Break } from "@/components/sections/Break";
 import { Work } from "@/components/sections/Work";
@@ -21,6 +22,7 @@ export default function Page() {
       <Nav />
       <AetherFlowHero />
       <Marquee />
+      <WalkIn />
       <Capabilities />
       <Break />
       <Work />

@@ -2,12 +2,9 @@
 
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLenis } from "@/components/SmoothScroll";
 import { NAV_LINKS } from "@/lib/content";
 import { EASE_OUT } from "@/lib/motion";
-
-gsap.registerPlugin(ScrollTrigger);
 
 /** Magnetic "Get In Touch" pill — follows cursor within 90px (max 10px, lerp
  *  0.18), a bone circle wipes from the cursor entry point on hover. */
@@ -103,22 +100,39 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // active-section highlight via each section's ScrollTrigger onToggle
+  // active-section highlight: rect-measured every scroll frame, so it stays
+  // truthful after reloads with scroll restoration and inside pinned sections
   useEffect(() => {
-    const triggers: ScrollTrigger[] = [];
-    NAV_LINKS.forEach((link) => {
-      const el = document.querySelector(link.href);
-      if (!el) return;
-      triggers.push(
-        ScrollTrigger.create({
-          trigger: el,
-          start: "top 55%",
-          end: "bottom 55%",
-          onToggle: (self) => self.isActive && setActive(link.href),
-        }),
-      );
+    const sections = NAV_LINKS.flatMap((link) => {
+      const el = document.querySelector<HTMLElement>(link.href);
+      return el ? [{ href: link.href as string, el }] : [];
     });
-    return () => triggers.forEach((t) => t.kill());
+    if (!sections.length) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const line = window.innerHeight * 0.5;
+      let current = "";
+      for (const s of sections) {
+        const r = s.el.getBoundingClientRect();
+        if (r.top <= line && r.bottom >= line) {
+          current = s.href;
+          break;
+        }
+      }
+      if (current) setActive(current); // hold the last section through gaps
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   // stagger mobile links in on open

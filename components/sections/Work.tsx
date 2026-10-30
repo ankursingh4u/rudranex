@@ -81,19 +81,48 @@ export function Work() {
   const root = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
 
+  // Active card = the block nearest the viewport center, measured fresh every
+  // scroll frame. Rect-based, so it can never desync — not after reloads with
+  // scroll restoration, not in the gaps between cards, not in any browser.
+  useEffect(() => {
+    const scope = root.current;
+    if (!scope) return;
+    const blocks = Array.from(scope.querySelectorAll<HTMLElement>(".work-block"));
+    if (!blocks.length) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const mid = window.innerHeight * 0.5;
+      let best = 0;
+      let bestDist = Infinity;
+      blocks.forEach((b, i) => {
+        const r = b.getBoundingClientRect();
+        const d = Math.abs((r.top + r.bottom) / 2 - mid);
+        if (d < bestDist) {
+          bestDist = d;
+          best = i;
+        }
+      });
+      setActive((a) => (a === best ? a : best));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   useGSAP(
     () => {
       const scope = root.current;
       if (!scope) return;
       const blocks = gsap.utils.toArray<HTMLElement>(".work-block", scope);
-      const triggers = blocks.map((b, i) =>
-        ScrollTrigger.create({
-          trigger: b,
-          start: "top 55%",
-          end: "bottom 45%",
-          onToggle: (self) => self.isActive && setActive(i),
-        }),
-      );
 
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const mm = gsap.matchMedia();
@@ -157,7 +186,6 @@ export function Work() {
       });
 
       return () => {
-        triggers.forEach((t) => t.kill());
         mm.revert();
       };
     },
