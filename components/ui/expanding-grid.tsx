@@ -43,7 +43,7 @@ export function ExpandingGrid({ items, cols = 3 }: { items: ExpandItem[]; cols?:
             data-cursor="hover"
             onMouseEnter={() => setHover({ r, c })}
             onMouseLeave={() => setHover(null)}
-            className="group relative min-h-[200px] overflow-hidden rounded-[14px] border border-line transition-colors duration-[350ms] hover:border-[rgba(61,125,255,0.6)]"
+            className="group relative min-h-[200px] overflow-hidden rounded-[14px] border border-line shadow-card transition-colors duration-[350ms] hover:border-[rgba(37,99,235,0.55)]"
           >
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-[700ms] ease-out group-hover:scale-[1.08]"
@@ -54,9 +54,10 @@ export function ExpandingGrid({ items, cols = 3 }: { items: ExpandItem[]; cols?:
               className="absolute inset-0"
               style={{ background: "linear-gradient(180deg, rgba(7,11,20,0.25), rgba(7,11,20,0.9))" }}
             />
+            {/* text sits on the dark photo scrim, so it stays light in any theme */}
             <div className="relative flex h-full flex-col justify-end p-6">
-              <h3 className="font-display text-[1.375rem] text-bone">{it.title}</h3>
-              <p className="mt-2 max-h-0 overflow-hidden text-[0.875rem] leading-relaxed text-bone/75 opacity-0 transition-all duration-[500ms] group-hover:mt-3 group-hover:max-h-40 group-hover:opacity-100">
+              <h3 className="font-display text-[1.375rem] text-white">{it.title}</h3>
+              <p className="mt-2 max-h-0 overflow-hidden text-[0.875rem] leading-relaxed text-white/75 opacity-0 transition-all duration-[500ms] group-hover:mt-3 group-hover:max-h-40 group-hover:opacity-100">
                 {it.description}
               </p>
             </div>

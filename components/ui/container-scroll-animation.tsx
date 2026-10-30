@@ -72,7 +72,7 @@ export const Card = ({
         rotateX: rotate,
         scale,
         boxShadow:
-          "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
+          "0 0 #0d14281a, 0 9px 20px #0d14281f, 0 37px 37px #0d142817, 0 84px 50px #0d14280d, 0 149px 60px #0d142806, 0 233px 65px #0d142803",
       }}
       className="mx-auto h-[22rem] w-full max-w-4xl rounded-[24px] border-4 border-line bg-ink-2 p-2 shadow-2xl md:h-[30rem] md:p-4"
     >

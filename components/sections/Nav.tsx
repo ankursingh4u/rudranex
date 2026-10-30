@@ -171,7 +171,7 @@ export function Nav() {
       <header
         className="fixed inset-x-0 top-0 z-[9996] h-[76px]"
         style={{
-          background: scrolled ? "rgba(7,11,20,0.72)" : "transparent",
+          background: scrolled ? "rgba(244,246,251,0.78)" : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: `1px solid ${scrolled ? "var(--color-line)" : "transparent"}`,

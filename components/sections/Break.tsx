@@ -85,8 +85,9 @@ export function Break() {
       data-no-stack
       className="relative flex h-screen items-center justify-center overflow-hidden"
     >
-      {/* deep base */}
-      <div aria-hidden className="absolute inset-0 bg-ink" />
+      {/* deep base — this section stays deliberately dark: the one cinematic
+          moment on the light site, so colors here are literal, not tokens */}
+      <div aria-hidden className="absolute inset-0 bg-[#070b14]" />
       {/* live software-network canvas */}
       <NetworkBg className="absolute inset-0 h-full w-full" />
       {/* subtle depth glow */}
@@ -105,7 +106,10 @@ export function Break() {
         style={{ background: "radial-gradient(120% 100% at 50% 50%, rgba(7,11,20,0.15), rgba(7,11,20,0.82))" }}
       />
 
-      <p className="eyebrow absolute top-[14vh] left-1/2 z-10 -translate-x-1/2 text-center">
+      <p
+        className="eyebrow absolute top-[14vh] left-1/2 z-10 -translate-x-1/2 text-center"
+        style={{ color: "#8b95ac" }}
+      >
         OUR WORK, IN A LINE
       </p>
 
@@ -113,7 +117,7 @@ export function Break() {
         {LINES.map((l, i) => (
           <h2
             key={i}
-            className="brk-line absolute max-w-[92vw] text-center font-display font-medium text-bone"
+            className="brk-line absolute max-w-[92vw] text-center font-display font-medium text-[#e9eef8]"
             style={{ fontSize: "clamp(38px, 7vw, 104px)", lineHeight: 0.98 }}
             aria-label={`${l.plain} ${l.em}`}
           >

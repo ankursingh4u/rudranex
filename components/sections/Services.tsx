@@ -41,10 +41,10 @@ export function Services() {
           scrollTrigger: { trigger: row, start: "top 62%", end: "bottom 38%", scrub: true },
         });
         tl.to(row, { opacity: 1, scale: 1, ease: "none", duration: 0.5 })
-          .to(num, { color: "#3d7dff", ease: "none", duration: 0.5 }, 0)
+          .to(num, { color: "#2563eb", ease: "none", duration: 0.5 }, 0)
           .to(tags, { y: 0, opacity: 1, ease: "none", duration: 0.35, stagger: 0.03 }, 0)
           .to(row, { opacity: 0.25, scale: 0.975, ease: "none", duration: 0.5 })
-          .to(num, { color: "#495066", ease: "none", duration: 0.5 }, 0.5);
+          .to(num, { color: "#5f6a87", ease: "none", duration: 0.5 }, 0.5);
         if (desktop) {
           gsap.fromTo(
             row,
@@ -76,7 +76,7 @@ export function Services() {
           {SERVICES.rows.map((r) => (
             <div
               key={r.num}
-              className="svc-row rounded-[14px] border border-line bg-ink-2 p-8 transition-colors duration-300 hover:border-[rgba(61,125,255,0.4)]"
+              className="svc-row rounded-[14px] border border-line bg-ink-2 p-8 transition-colors duration-300 hover:border-[rgba(37,99,235,0.4)]"
             >
               <div className="svc-inner flex gap-6">
                 <span className="svc-num font-mono text-[0.8125rem] text-faint">{r.num}</span>

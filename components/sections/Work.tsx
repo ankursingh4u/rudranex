@@ -35,7 +35,7 @@ function Panel({ i, b, spark }: { i: number; b: (typeof WORK)[number]; spark?: b
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(233,238,248,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(233,238,248,0.5) 1px, transparent 1px)",
+            "linear-gradient(rgba(13,20,40,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(13,20,40,0.5) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
@@ -44,7 +44,7 @@ function Panel({ i, b, spark }: { i: number; b: (typeof WORK)[number]; spark?: b
           <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted">{b.title}</p>
           <div className="mt-2 font-display text-[2.5rem] leading-none text-bone">{m.value}</div>
         </div>
-        <span className="rounded-full bg-[rgba(61,125,255,0.15)] px-2.5 py-1 font-mono text-[0.6875rem] text-ember">
+        <span className="rounded-full bg-[rgba(37,99,235,0.1)] px-2.5 py-1 font-mono text-[0.6875rem] text-ember">
           ▲ {m.change}
         </span>
       </div>
@@ -53,7 +53,7 @@ function Panel({ i, b, spark }: { i: number; b: (typeof WORK)[number]; spark?: b
           <div
             key={bi}
             className="flex-1 rounded-t-[3px]"
-            style={{ height: `${h}%`, background: "linear-gradient(180deg, rgba(61,125,255,0.65), rgba(61,125,255,0.12))" }}
+            style={{ height: `${h}%`, background: "linear-gradient(180deg, rgba(37,99,235,0.7), rgba(37,99,235,0.15))" }}
           />
         ))}
       </div>
@@ -62,7 +62,7 @@ function Panel({ i, b, spark }: { i: number; b: (typeof WORK)[number]; spark?: b
           className={spark ? `work-spark-${i}` : ""}
           d={SPARKS[i]}
           fill="none"
-          stroke="#3d7dff"
+          stroke="#2563eb"
           strokeWidth={1.5}
           vectorEffect="non-scaling-stroke"
         />
@@ -160,7 +160,7 @@ export function Work() {
             {WORK.map((b, i) => (
               <div
                 key={b.title}
-                className="work-block flex flex-col justify-center rounded-[14px] border border-line bg-ink-2 p-8 lg:min-h-[420px]"
+                className="work-block flex flex-col justify-center rounded-[14px] border border-line bg-ink-2 p-8 shadow-card lg:min-h-[420px]"
                 style={{ opacity: 0.3 }}
               >
                 <span className="font-mono text-[0.8125rem] text-ember">{String(i + 1).padStart(2, "0")}</span>

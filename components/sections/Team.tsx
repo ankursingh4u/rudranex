@@ -91,7 +91,7 @@ export function Team() {
               "team-card group block rounded-[18px] [transform-style:preserve-3d]";
             const inner = (
               <div
-                className="team-tilt flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-ink-2 transition-colors duration-[350ms] [transform-style:preserve-3d] group-hover:border-[rgba(61,125,255,0.5)] sm:flex-row"
+                className="team-tilt flex h-full flex-col overflow-hidden rounded-[18px] border border-line bg-ink-2 shadow-card transition-colors duration-[350ms] [transform-style:preserve-3d] group-hover:border-[rgba(37,99,235,0.5)] sm:flex-row"
               >
                 <div className="relative aspect-square w-full overflow-hidden sm:w-[40%] sm:shrink-0">
                   <img

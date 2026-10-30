@@ -22,7 +22,7 @@ function WorldCard({ w }: { w: (typeof WORLDS)[number] }) {
       className="world-card group block h-full"
       style={{ perspective: 1000 }}
     >
-      <div className="relative h-full min-h-[440px] overflow-hidden rounded-[14px] border border-line shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-[border-color,box-shadow] duration-[400ms] group-hover:border-[rgba(61,125,255,0.6)] group-hover:shadow-[0_28px_70px_rgba(0,0,0,0.55)]">
+      <div className="relative h-full min-h-[440px] overflow-hidden rounded-[14px] border border-line shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-[border-color,box-shadow] duration-[400ms] group-hover:border-[rgba(37,99,235,0.6)] group-hover:shadow-[0_28px_70px_rgba(0,0,0,0.55)]">
         {/* huge background image */}
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-[800ms] ease-out group-hover:scale-[1.09]"

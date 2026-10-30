@@ -32,7 +32,7 @@ class Particle {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-    ctx.fillStyle = "rgba(210, 224, 255, 0.32)"; // cool blue-white particles
+    ctx.fillStyle = "rgba(23, 42, 90, 0.38)"; // deep navy particles on glacier
     ctx.fill();
   }
 
@@ -116,8 +116,8 @@ export default function AetherFlowHero() {
             const dym = particles[a].y - (mouse.y ?? -9999);
             const near = Math.sqrt(dxm * dxm + dym * dym) < mouse.radius;
             ctx.strokeStyle = near
-              ? `rgba(61, 125, 255, ${opacity})` // electric blue near cursor (active)
-              : `rgba(70, 95, 150, ${opacity})`; // dim blue elsewhere
+              ? `rgba(37, 99, 235, ${opacity * 0.8})` // electric blue near cursor (active)
+              : `rgba(125, 140, 175, ${opacity * 0.55})`; // dim slate elsewhere
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(particles[a].x, particles[a].y);
@@ -129,7 +129,7 @@ export default function AetherFlowHero() {
     };
 
     const render = () => {
-      ctx.fillStyle = "#070b14"; // ink (deep navy)
+      ctx.fillStyle = "#f4f6fb"; // ink (glacier)
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (const p of particles) p.update(ctx, canvas, mouse);
       connect();
@@ -178,6 +178,12 @@ export default function AetherFlowHero() {
   return (
     <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden pt-24">
       <canvas ref={canvasRef} className="absolute left-0 top-0 h-full w-full" aria-hidden />
+      {/* soft ember aurora bleeding in from the top */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(70% 55% at 50% 0%, rgba(37,99,235,0.12), transparent 70%)" }}
+      />
 
       <div className="relative z-10 p-6 text-center">
         <motion.div
@@ -223,7 +229,7 @@ export default function AetherFlowHero() {
           <a
             href={HERO.ctas[0].href}
             data-cursor="hover"
-            className="inline-flex items-center gap-2 rounded-full bg-bone px-8 py-4 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-[#fffaf2]"
+            className="inline-flex items-center gap-2 rounded-full bg-bone px-8 py-4 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-ember"
           >
             {HERO.ctas[0].label}
             <ArrowRight className="h-4 w-4" strokeWidth={1.5} />

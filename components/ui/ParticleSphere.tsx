@@ -56,7 +56,7 @@ export function ParticleSphere({ className = "" }: { className?: string }) {
         const size = Math.max(0.4, (z + 1.5) * 1.0 * dpr);
         ctx.beginPath();
         ctx.arc(sx, sy, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(61, 125, 255, ${alpha * 0.7})`;
+        ctx.fillStyle = `rgba(37, 99, 235, ${alpha * 0.7})`;
         ctx.fill();
       }
     };

@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
-/* ═══ EMBER & BONE — theme tokens (Tailwind v4 @theme → utilities + vars) ═══ */
+/* ═══ GLACIER & EMBER — light theme tokens (names kept; roles unchanged:
+   ink = page bg, bone = primary text, ember = the one accent) ═══ */
 @theme {
-  --color-ink: #070b14; /* deep navy-black page bg */
-  --color-ink-2: #0e1524; /* raised navy surfaces */
-  --color-bone: #e9eef8; /* primary text — cool off-white */
-  --color-muted: #8b95ac; /* secondary text — blue-gray */
-  --color-faint: #7a849b; /* tertiary — eyebrows at rest (5.4:1 on ink; keep ≥4.5:1 for small text) */
-  --color-ember: #3d7dff; /* accent — electric blue (token name kept; value is blue) */
-  --color-line: #1b2436; /* hairline borders */
+  --color-ink: #f4f6fb; /* page bg — cool glacier off-white */
+  --color-ink-2: #ffffff; /* raised surfaces — white cards */
+  --color-bone: #0d1428; /* primary text — deep navy (16.9:1 on ink) */
+  --color-muted: #49536e; /* secondary text (7.1:1) */
+  --color-faint: #5f6a87; /* tertiary — eyebrows at rest (5.0:1; keep ≥4.5:1 for small text) */
+  --color-ember: #2563eb; /* accent — electric blue (4.8:1 on ink) */
+  --color-line: #dde3ee; /* hairline borders */
+
+  --shadow-card: 0 1px 2px rgba(13, 20, 40, 0.05), 0 16px 40px -16px rgba(13, 20, 40, 0.18);
 
   --font-display: var(--font-fraunces);
   --font-body: var(--font-inter);
@@ -16,10 +19,10 @@
 }
 
 :root {
-  color-scheme: dark;
-  --ember-glow: rgba(61, 125, 255, 0.16);
-  --glass-bg: rgba(233, 238, 248, 0.04);
-  --glass-line: rgba(233, 238, 248, 0.09);
+  color-scheme: light;
+  --ember-glow: rgba(37, 99, 235, 0.14);
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-line: rgba(13, 20, 40, 0.08);
 }
 
 * {
@@ -168,7 +171,7 @@ h3 {
   inset: 0;
   z-index: 9998;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.025; /* grain reads stronger on light surfaces — keep it faint */
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
 }
