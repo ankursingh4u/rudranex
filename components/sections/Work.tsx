@@ -124,6 +124,10 @@ export function Work() {
     { scope: root },
   );
 
+  // Exclusive layer swap: the outgoing panel snaps away fast and is then
+  // visibility-hidden, the incoming one slides in FROM THE LEFT (out of its
+  // card). killTweensOf + overwrite guarantee two graphs can never coexist
+  // even when scrolling flings `active` through several values.
   useEffect(() => {
     const scope = root.current;
     if (!scope) return;
@@ -131,19 +135,44 @@ export function Work() {
     const layers = scope.querySelectorAll<HTMLElement>(".work-layer");
     const blocks = scope.querySelectorAll<HTMLElement>(".work-block");
     layers.forEach((l, i) => {
+      gsap.killTweensOf(l);
       if (reduce) {
-        l.style.opacity = i === active ? "1" : "0";
+        gsap.set(l, { opacity: i === active ? 1 : 0, visibility: i === active ? "visible" : "hidden", x: 0 });
         return;
       }
-      if (i === active)
-        gsap.fromTo(l, { opacity: 0, y: 24, scale: 1.04 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "expo.out" });
-      else gsap.to(l, { opacity: 0, y: -16, scale: 0.98, duration: 0.35, ease: "power3.inOut" });
+      if (i === active) {
+        gsap.set(l, { visibility: "visible", zIndex: 2 });
+        gsap.fromTo(
+          l,
+          { opacity: 0, x: -64 },
+          { opacity: 1, x: 0, duration: 0.6, delay: 0.12, ease: "expo.out", overwrite: true },
+        );
+      } else {
+        gsap.set(l, { zIndex: 1 });
+        gsap.to(l, {
+          opacity: 0,
+          x: 40,
+          duration: 0.22,
+          ease: "power2.in",
+          overwrite: true,
+          onComplete: () => gsap.set(l, { visibility: "hidden", x: 0 }),
+        });
+      }
     });
-    blocks.forEach((b, i) => gsap.to(b, { opacity: i === active ? 1 : 0.3, duration: 0.4, ease: "power3.inOut" }));
+    blocks.forEach((b, i) => gsap.to(b, { opacity: i === active ? 1 : 0.3, duration: 0.4, ease: "power3.inOut", overwrite: true }));
     const path = scope.querySelector<SVGPathElement>(`.work-spark-${active}`);
     if (path && !reduce) {
+      gsap.killTweensOf(path);
       const len = path.getTotalLength();
-      gsap.fromTo(path, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.8, ease: "expo.out" });
+      gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: 0.7,
+        delay: 0.3, // start once the layer has landed
+        ease: "power2.out",
+        overwrite: true,
+        onComplete: () => gsap.set(path, { strokeDasharray: "none", strokeDashoffset: 0 }),
+      });
     }
   }, [active]);
 
@@ -189,7 +218,11 @@ export function Work() {
                 style={{ transformStyle: "preserve-3d" }}
               >
                 {WORK.map((b, i) => (
-                  <div key={b.title} className="work-layer absolute inset-0 p-9" style={{ opacity: i === 0 ? 1 : 0 }}>
+                  <div
+                    key={b.title}
+                    className="work-layer absolute inset-0 p-9"
+                    style={{ opacity: i === 0 ? 1 : 0, visibility: i === 0 ? "visible" : "hidden" }}
+                  >
                     <Panel i={i} b={b} spark />
                   </div>
                 ))}
