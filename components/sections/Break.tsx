@@ -41,39 +41,50 @@ export function Break() {
       }
 
       const n = lines.length;
+      // Discrete swaps instead of a scrubbed timeline: scroll position only
+      // picks WHICH phrase is active; the in/out tweens always run to
+      // completion, so stopping mid-scroll never strands a half-blurred line.
       const build = (slot: number) => {
-        gsap.set(lines, { opacity: 0, y: 64, filter: "blur(16px)", scale: 0.95 });
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: scope,
-            start: "top top",
-            end: `+=${n * slot}`,
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
+        gsap.set(lines, { opacity: 0 });
+        let idx = -1;
+        const show = (i: number, dir: 1 | -1) => {
+          const prev = idx;
+          idx = i;
+          if (prev >= 0 && prev !== i) {
+            gsap.to(lines[prev], {
+              opacity: 0,
+              y: -52 * dir,
+              filter: "blur(12px)",
+              scale: 1.03,
+              duration: 0.4,
+              ease: "power2.in",
+              overwrite: true,
+            });
+          }
+          gsap.fromTo(
+            lines[i],
+            { opacity: 0, y: 56 * dir, filter: "blur(14px)", scale: 0.96 },
+            { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.65, ease: "expo.out", overwrite: true },
+          );
+        };
+        const st = ScrollTrigger.create({
+          trigger: scope,
+          start: "top top",
+          end: `+=${n * slot}`,
+          pin: true,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const i = Math.min(n - 1, Math.floor(self.progress * n));
+            if (i !== idx) show(i, self.direction === -1 ? -1 : 1);
           },
         });
-        lines.forEach((el, i) => {
-          tl.fromTo(
-            el,
-            { opacity: 0, y: 64, filter: "blur(16px)", scale: 0.95 },
-            { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, duration: 0.55, ease: "expo.out" },
-            i,
-          );
-          if (i < n - 1) {
-            tl.to(
-              el,
-              { opacity: 0, y: -64, filter: "blur(16px)", scale: 1.04, duration: 0.45, ease: "power2.in" },
-              i + 0.55,
-            );
-          }
-        });
-        return () => tl.scrollTrigger?.kill();
+        show(0, 1);
+        return () => st.kill();
       };
 
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px)", () => build(560));
-      mm.add("(max-width: 767px)", () => build(360));
+      mm.add("(min-width: 768px)", () => build(520));
+      mm.add("(max-width: 767px)", () => build(340));
       return () => mm.revert();
     },
     { scope: root },

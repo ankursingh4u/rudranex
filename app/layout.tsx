@@ -5,6 +5,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Cursor } from "@/components/global/Cursor";
 import { ScrollProgress } from "@/components/global/ScrollProgress";
 import { SectionStacking } from "@/components/global/SectionStacking";
+import { CardTransition } from "@/components/global/CardTransition";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Cursor />
           <ScrollProgress />
           <SectionStacking />
+          <CardTransition />
           {children}
         </SmoothScroll>
       </body>

@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { NetworkBg } from "@/components/ui/network-bg";
+import { VIA_CARD_KEY } from "@/components/global/CardTransition";
 import { CTA, FOOTER } from "@/lib/content";
 import type { ServiceDetail, ServiceStat } from "@/lib/services";
 import { EASE_OUT, EASE_FLOW, prefersReduced } from "@/lib/motion";
@@ -615,11 +616,17 @@ function ServiceCta({ s }: { s: ServiceDetail }) {
 export function ServiceView({ s }: { s: ServiceDetail }) {
   const wipe = useRef<HTMLDivElement>(null);
 
-  // page-enter wipe: an ink panel lifts away, revealing the hero mid-motion
+  // page-enter wipe: an ink panel lifts away, revealing the hero mid-motion.
+  // Skipped when the card-expand overlay brought us here — that IS the reveal.
   useEffect(() => {
     const el = wipe.current;
     if (!el) return;
-    if (prefersReduced()) {
+    let viaCard = false;
+    try {
+      viaCard = sessionStorage.getItem(VIA_CARD_KEY) === "1";
+      sessionStorage.removeItem(VIA_CARD_KEY);
+    } catch {}
+    if (prefersReduced() || viaCard) {
       el.style.display = "none";
       return;
     }
