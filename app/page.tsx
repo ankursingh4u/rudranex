@@ -4,7 +4,6 @@ import AetherFlowHero from "@/components/ui/aether-flow-hero";
 import { Marquee } from "@/components/sections/Marquee";
 import { WalkIn } from "@/components/sections/WalkIn";
 import { Capabilities } from "@/components/sections/Capabilities";
-import { Break } from "@/components/sections/Break";
 import { Work } from "@/components/sections/Work";
 import { ScrollShowcase } from "@/components/sections/ScrollShowcase";
 import { Team } from "@/components/sections/Team";
@@ -24,7 +23,6 @@ export default function Page() {
       <Marquee />
       <WalkIn />
       <Capabilities />
-      <Break />
       <Work />
       <ScrollShowcase />
       <Team />
