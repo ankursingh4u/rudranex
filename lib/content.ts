@@ -151,11 +151,11 @@ export const CTA = {
   eyebrow: "YOUR NEXT ERA STARTS HERE",
   // h2 rendered with "anything" as an ember <em>
   button: "Launch a Project",
-  contact: ["hello@rudranex.in", "+91 77259 71086", "Jaipur, Rajasthan, India"],
+  contact: ["support@rudranex.in", "+91 77259 71086", "Jaipur, Rajasthan, India"],
 } as const;
 
 export const FOOTER = {
   tagline: "Building digital solutions for the next era.",
-  connect: ["hello@rudranex.in", "+91 77259 71086", "Jaipur, Rajasthan, India"],
+  connect: ["support@rudranex.in", "+91 77259 71086", "Jaipur, Rajasthan, India"],
   copyright: "© 2026 Rudranex. All rights reserved.",
 } as const;
