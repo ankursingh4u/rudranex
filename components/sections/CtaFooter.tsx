@@ -69,7 +69,7 @@ function LaunchButton() {
   return (
     <a
       ref={btn}
-      href="mailto:hello@rudranex.in?subject=New%20project%20inquiry"
+      href="mailto:support@rudranex.in?subject=New%20project%20inquiry"
       data-cursor="hover"
       onMouseEnter={enter}
       onMouseLeave={leave}
