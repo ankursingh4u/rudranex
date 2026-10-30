@@ -52,14 +52,14 @@ function Panel({ i, b, spark }: { i: number; b: (typeof WORK)[number]; spark?: b
         {m.bars.map((h, bi) => (
           <div
             key={bi}
-            className="flex-1 rounded-t-[3px]"
+            className="wk-bar flex-1 rounded-t-[3px]"
             style={{ height: `${h}%`, background: "linear-gradient(180deg, rgba(37,99,235,0.7), rgba(37,99,235,0.15))" }}
           />
         ))}
       </div>
       <svg viewBox="0 0 150 50" preserveAspectRatio="none" className="mt-4 h-[42px] w-full">
         <path
-          className={spark ? `work-spark-${i}` : ""}
+          className={`wk-spark ${spark ? `work-spark-${i}` : ""}`}
           d={SPARKS[i]}
           fill="none"
           stroke="#2563eb"
@@ -95,10 +95,13 @@ export function Work() {
         }),
       );
 
-      // staggered card entrance for the left blocks
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const desktop = window.matchMedia("(min-width: 768px)").matches;
-      if (!reduce) {
+      const mm = gsap.matchMedia();
+
+      // ── desktop: dimmed stack + staggered entrance + 3D tilt on the panel
+      mm.add("(min-width: 1024px)", () => {
+        gsap.set(blocks, { opacity: 0.3 });
+        if (reduce) return;
         gsap.from(blocks, {
           y: 40,
           duration: 0.9,
@@ -106,9 +109,6 @@ export function Work() {
           stagger: 0.1,
           scrollTrigger: { trigger: scope, start: "top 78%", once: true },
         });
-      }
-      // scroll-driven 3D tilt on the sticky media panel
-      if (!reduce && desktop) {
         gsap.fromTo(
           ".work-panel",
           { rotateX: 6 },
@@ -118,8 +118,48 @@ export function Work() {
             scrollTrigger: { trigger: scope, start: "top center", end: "bottom center", scrub: true },
           },
         );
-      }
-      return () => triggers.forEach((t) => t.kill());
+      });
+
+      // ── mobile: every card is full-strength; its graph panel slides in
+      //    from the left, bars spring up, sparkline draws
+      mm.add("(max-width: 1023px)", () => {
+        gsap.set(blocks, { opacity: 1 });
+        if (reduce) return;
+        blocks.forEach((b) => {
+          gsap.from(b, {
+            y: 36,
+            opacity: 0,
+            duration: 0.8,
+            ease: "expo.out",
+            scrollTrigger: { trigger: b, start: "top 88%", once: true },
+          });
+          const panel = b.querySelector<HTMLElement>(".wk-mobile-panel");
+          if (!panel) return;
+          const tl = gsap.timeline({
+            scrollTrigger: { trigger: panel, start: "top 85%", once: true },
+          });
+          tl.from(panel, { x: -56, opacity: 0, duration: 0.7, ease: "expo.out" }).from(
+            panel.querySelectorAll(".wk-bar"),
+            { scaleY: 0, transformOrigin: "bottom", stagger: 0.07, duration: 0.6, ease: "back.out(1.6)" },
+            0.15,
+          );
+          const sp = panel.querySelector<SVGPathElement>(".wk-spark");
+          if (sp) {
+            const len = sp.getTotalLength();
+            tl.fromTo(
+              sp,
+              { strokeDasharray: len, strokeDashoffset: len },
+              { strokeDashoffset: 0, duration: 0.7, ease: "power2.out" },
+              0.35,
+            );
+          }
+        });
+      });
+
+      return () => {
+        triggers.forEach((t) => t.kill());
+        mm.revert();
+      };
     },
     { scope: root },
   );
@@ -131,6 +171,7 @@ export function Work() {
   useEffect(() => {
     const scope = root.current;
     if (!scope) return;
+    if (!window.matchMedia("(min-width: 1024px)").matches) return; // mobile has inline panels
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const layers = scope.querySelectorAll<HTMLElement>(".work-layer");
     const blocks = scope.querySelectorAll<HTMLElement>(".work-block");
@@ -146,6 +187,13 @@ export function Work() {
           l,
           { opacity: 0, x: -64 },
           { opacity: 1, x: 0, duration: 0.6, delay: 0.12, ease: "expo.out", overwrite: true },
+        );
+        const bars = l.querySelectorAll(".wk-bar");
+        gsap.killTweensOf(bars);
+        gsap.fromTo(
+          bars,
+          { scaleY: 0, transformOrigin: "bottom" },
+          { scaleY: 1, stagger: 0.06, duration: 0.55, delay: 0.22, ease: "back.out(1.6)", overwrite: true },
         );
       } else {
         gsap.set(l, { zIndex: 1 });
@@ -190,7 +238,6 @@ export function Work() {
               <div
                 key={b.title}
                 className="work-block flex flex-col justify-center rounded-[14px] border border-line bg-ink-2 p-8 shadow-card lg:min-h-[420px]"
-                style={{ opacity: 0.3 }}
               >
                 <span className="font-mono text-[0.8125rem] text-ember">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="h3 mt-3 font-display text-bone">{b.title}</h3>
@@ -204,7 +251,7 @@ export function Work() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-6 h-[280px] glass rounded-[14px] p-8 lg:hidden">
+                <div className="wk-mobile-panel mt-6 h-[280px] glass rounded-[14px] p-8 lg:hidden">
                   <Panel i={i} b={b} />
                 </div>
               </div>
