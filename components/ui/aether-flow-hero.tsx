@@ -188,7 +188,7 @@ export default function AetherFlowHero() {
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--glass-line)] bg-[color:var(--glass-bg)] px-4 py-1.5 backdrop-blur-sm"
         >
           <Zap className="h-4 w-4 text-ember" strokeWidth={1.5} />
-          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+          <span className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-muted">
             {HERO.eyebrow}
           </span>
         </motion.div>
@@ -223,7 +223,7 @@ export default function AetherFlowHero() {
           <a
             href={HERO.ctas[0].href}
             data-cursor="hover"
-            className="inline-flex items-center gap-2 rounded-full bg-bone px-8 py-4 font-mono text-[12px] uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-[#fffaf2]"
+            className="inline-flex items-center gap-2 rounded-full bg-bone px-8 py-4 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-[#fffaf2]"
           >
             {HERO.ctas[0].label}
             <ArrowRight className="h-4 w-4" strokeWidth={1.5} />

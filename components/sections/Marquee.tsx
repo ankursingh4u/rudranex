@@ -48,7 +48,7 @@ export function Marquee() {
         <div ref={track} className="flex w-max items-center gap-8 whitespace-nowrap">
           {loop.map((item, i) => (
             <span key={i} className="flex items-center gap-8">
-              <span className="font-mono text-[12px] uppercase tracking-[0.16em] text-faint">
+              <span className="font-mono text-[0.75rem] uppercase tracking-[0.16em] text-faint">
                 {item}
               </span>
               <span aria-hidden className="text-ember/50">

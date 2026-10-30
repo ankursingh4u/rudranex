@@ -109,7 +109,7 @@ export function Reliability() {
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <span
-                    className="stat-num font-display text-[34px] text-bone"
+                    className="stat-num font-display text-[2.125rem] text-bone"
                     data-v={s.value}
                     data-s={s.suffix}
                   >
@@ -119,8 +119,8 @@ export function Reliability() {
                 </div>
               </div>
               <div>
-                <p className="stat-meta font-display text-[20px] text-bone">{s.label}</p>
-                <p className="stat-meta mt-2 text-[14px] leading-relaxed text-muted">{s.body}</p>
+                <p className="stat-meta font-display text-[1.25rem] text-bone">{s.label}</p>
+                <p className="stat-meta mt-2 text-[0.875rem] leading-relaxed text-muted">{s.body}</p>
               </div>
             </div>
           ))}

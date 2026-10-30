@@ -69,7 +69,7 @@ export function Services() {
           <LineReveal as="h2" className="h-section mt-5 font-display text-bone">
             Six disciplines. One <em>relentless</em> team.
           </LineReveal>
-          <p className="mt-8 max-w-md text-[15px] leading-relaxed text-muted">{SERVICES.body}</p>
+          <p className="mt-8 max-w-md text-[0.9375rem] leading-relaxed text-muted">{SERVICES.body}</p>
         </div>
 
         <div className="space-y-4" style={{ perspective: 1200 }}>
@@ -79,15 +79,15 @@ export function Services() {
               className="svc-row rounded-[14px] border border-line bg-ink-2 p-8 transition-colors duration-300 hover:border-[rgba(61,125,255,0.4)]"
             >
               <div className="svc-inner flex gap-6">
-                <span className="svc-num font-mono text-[13px] text-faint">{r.num}</span>
+                <span className="svc-num font-mono text-[0.8125rem] text-faint">{r.num}</span>
                 <div>
                   <h3 className="h3 font-display text-bone">{r.title}</h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted">{r.body}</p>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{r.body}</p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     {r.tags.map((t) => (
                       <span
                         key={t}
-                        className="svc-tag rounded-full border border-line px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-faint"
+                        className="svc-tag rounded-full border border-line px-3 py-1.5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-faint"
                       >
                         {t}
                       </span>

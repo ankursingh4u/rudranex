@@ -6,7 +6,7 @@
   --color-ink-2: #0e1524; /* raised navy surfaces */
   --color-bone: #e9eef8; /* primary text — cool off-white */
   --color-muted: #8b95ac; /* secondary text — blue-gray */
-  --color-faint: #495066; /* tertiary — eyebrows at rest, dividers */
+  --color-faint: #7a849b; /* tertiary — eyebrows at rest (5.4:1 on ink; keep ≥4.5:1 for small text) */
   --color-ember: #3d7dff; /* accent — electric blue (token name kept; value is blue) */
   --color-line: #1b2436; /* hairline borders */
 
@@ -70,17 +70,17 @@ h3 {
 }
 
 .h-hero {
-  font-size: clamp(36px, 4.6vw, 74px);
+  font-size: clamp(2.25rem, 4.6vw, 4.625rem);
   letter-spacing: -0.02em;
   line-height: 1.03;
 }
 .h-section {
-  font-size: clamp(28px, 3.4vw, 54px);
+  font-size: clamp(1.75rem, 3.4vw, 3.375rem);
   letter-spacing: -0.02em;
   line-height: 1.05;
 }
 .h3 {
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1.15;
 }
 
@@ -94,7 +94,7 @@ h3 {
 }
 
 .body-lg {
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.65;
 }
 
@@ -104,22 +104,22 @@ h3 {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--color-faint);
 }
 
 @media (max-width: 767px) {
   .h-hero {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
   .h-section {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
   .h3 {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .body-lg {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
 }
 
@@ -182,7 +182,7 @@ h3 {
   border-radius: 999px;
   padding: 10px 22px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--color-bone);
@@ -190,7 +190,7 @@ h3 {
 
 .link-underline {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
   color: var(--color-bone);

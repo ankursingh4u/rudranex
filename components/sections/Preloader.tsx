@@ -97,12 +97,12 @@ export function Preloader() {
       <div className="pl-content absolute inset-0">
         <span
           ref={counter}
-          className="absolute right-6 top-6 font-mono text-[11px] uppercase tracking-[0.18em] text-faint"
+          className="absolute right-6 top-6 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-faint"
         >
           00 — 100
         </span>
         <div className="flex h-full items-center justify-center">
-          <div className="flex font-display text-[40px] font-medium tracking-[0.02em] text-bone">
+          <div className="flex font-display text-[2.5rem] font-medium tracking-[0.02em] text-bone">
             {LETTERS.map((l, i) => (
               <span key={i} className="line-mask">
                 <span className="pl-letter inline-block">{l}</span>

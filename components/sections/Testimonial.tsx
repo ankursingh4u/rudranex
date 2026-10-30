@@ -51,18 +51,18 @@ export function Testimonial() {
       <div className="container-x relative mx-auto max-w-[900px]">
         <span
           aria-hidden
-          className="t-mark pointer-events-none absolute -left-2 -top-16 font-display text-[140px] leading-none text-faint"
+          className="t-mark pointer-events-none absolute -left-2 -top-16 font-display text-[8.75rem] leading-none text-faint"
         >
           &ldquo;
         </span>
         <WordScrub
           as="blockquote"
           text={TESTIMONIAL.quote}
-          className="relative font-display text-[32px] italic leading-[1.4] text-bone"
+          className="relative font-display text-[2rem] italic leading-[1.4] text-bone"
           start="top 70%"
           end="top 35%"
         />
-        <p className="t-attr mt-8 font-mono text-[12px] uppercase tracking-[0.16em] text-muted">
+        <p className="t-attr mt-8 font-mono text-[0.75rem] uppercase tracking-[0.16em] text-muted">
           {TESTIMONIAL.attribution}
         </p>
       </div>

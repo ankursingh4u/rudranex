@@ -41,8 +41,8 @@ function WorldCard({ w }: { w: (typeof WORLDS)[number] }) {
         <div className="relative z-10 flex h-full flex-col justify-end p-8">
           <p className="eyebrow">{w.eyebrow}</p>
           <h3 className="h3 mt-3 font-display text-bone">{w.title}</h3>
-          <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-bone/75">{w.body}</p>
-          <span className="mt-6 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.16em] text-bone">
+          <p className="mt-3 max-w-sm text-[0.9375rem] leading-relaxed text-bone/75">{w.body}</p>
+          <span className="mt-6 inline-flex items-center gap-2 font-mono text-[0.75rem] uppercase tracking-[0.16em] text-bone">
             {w.link}
             <span
               aria-hidden

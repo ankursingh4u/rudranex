@@ -158,12 +158,12 @@ export function Hero() {
             className={`hero-card hero-card-${i} absolute z-[5] hidden w-[190px] md:block ${CARDS[i].pos}`}
           >
             <div className="hero-float glass rounded-[14px] p-[22px]">
-              <div className="font-display text-[44px] leading-none text-bone">
+              <div className="font-display text-[2.75rem] leading-none text-bone">
                 <span className="hero-count" data-v={card.value}>
                   {card.value}
                 </span>
               </div>
-              <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+              <div className="mt-2 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-muted">
                 {card.label}
               </div>
             </div>
@@ -173,7 +173,7 @@ export function Hero() {
         {/* C. text block */}
         <div className="container-x relative z-10 flex h-full flex-col justify-center">
           <div className="hero-text max-w-[760px]">
-            <p className="hero-eyebrow font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+            <p className="hero-eyebrow font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-faint">
               {HERO.eyebrow}
             </p>
             <h1
@@ -204,14 +204,14 @@ export function Hero() {
 
         {/* center data label (phase C) */}
         <div className="hero-datalabel pointer-events-none absolute inset-0 z-[6] flex items-center justify-center">
-          <span className="font-mono text-[13px] uppercase tracking-[0.2em] text-bone">
+          <span className="font-mono text-[0.8125rem] uppercase tracking-[0.2em] text-bone">
             {HERO.centerLabel}
           </span>
         </div>
 
         {/* D. scroll cue */}
         <div className="absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3">
-          <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+          <span className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-faint">
             {HERO.scrollLabel}
           </span>
           <span className="hero-cue-line block h-[48px] w-px origin-top bg-line" />

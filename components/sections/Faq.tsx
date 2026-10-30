@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -15,6 +15,7 @@ function Row({ item, open, onToggle }: { item: (typeof FAQS)[number]; open: bool
   const inner = useRef<HTMLParagraphElement>(null);
   const plus = useRef<HTMLSpanElement>(null);
   const q = useRef<HTMLButtonElement>(null);
+  const panelId = useId();
 
   useGSAP(
     () => {
@@ -42,7 +43,8 @@ function Row({ item, open, onToggle }: { item: (typeof FAQS)[number]; open: bool
         ref={q}
         onClick={onToggle}
         aria-expanded={open}
-        className="flex w-full items-center justify-between gap-6 text-left font-display text-[20px] text-muted"
+        aria-controls={panelId}
+        className="flex w-full items-center justify-between gap-6 text-left font-display text-[1.25rem] text-muted"
       >
         <span>{item.q}</span>
         <span ref={plus} className="relative block h-[14px] w-[14px] shrink-0">
@@ -50,8 +52,8 @@ function Row({ item, open, onToggle }: { item: (typeof FAQS)[number]; open: bool
           <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
         </span>
       </button>
-      <div ref={panel} className="overflow-hidden" style={{ height: 0 }}>
-        <p ref={inner} className="pt-5 text-[15px] leading-relaxed text-muted">
+      <div ref={panel} id={panelId} aria-hidden={!open} className="overflow-hidden" style={{ height: 0 }}>
+        <p ref={inner} className="pt-5 text-[0.9375rem] leading-relaxed text-muted">
           {item.a}
         </p>
       </div>

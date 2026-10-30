@@ -41,10 +41,10 @@ function Panel({ i, b, spark }: { i: number; b: (typeof WORK)[number]; spark?: b
       />
       <div className="relative flex items-start justify-between">
         <div>
-          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">{b.title}</p>
-          <div className="mt-2 font-display text-[40px] leading-none text-bone">{m.value}</div>
+          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted">{b.title}</p>
+          <div className="mt-2 font-display text-[2.5rem] leading-none text-bone">{m.value}</div>
         </div>
-        <span className="rounded-full bg-[rgba(61,125,255,0.15)] px-2.5 py-1 font-mono text-[11px] text-ember">
+        <span className="rounded-full bg-[rgba(61,125,255,0.15)] px-2.5 py-1 font-mono text-[0.6875rem] text-ember">
           ▲ {m.change}
         </span>
       </div>
@@ -67,7 +67,7 @@ function Panel({ i, b, spark }: { i: number; b: (typeof WORK)[number]; spark?: b
           vectorEffect="non-scaling-stroke"
         />
       </svg>
-      <div className="mt-3 flex justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-faint">
+      <div className="mt-3 flex justify-between font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-faint">
         <span>{m.a}</span>
         <span>{m.b}</span>
       </div>
@@ -163,13 +163,13 @@ export function Work() {
                 className="work-block flex flex-col justify-center rounded-[14px] border border-line bg-ink-2 p-8 lg:min-h-[420px]"
                 style={{ opacity: 0.3 }}
               >
-                <span className="font-mono text-[13px] text-ember">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-[0.8125rem] text-ember">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="h3 mt-3 font-display text-bone">{b.title}</h3>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {b.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full border border-line px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-faint"
+                      className="rounded-full border border-line px-3 py-1.5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-faint"
                     >
                       {t}
                     </span>

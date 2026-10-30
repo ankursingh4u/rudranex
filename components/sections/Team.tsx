@@ -104,12 +104,12 @@ export function Team() {
 
                 <div className="flex flex-1 flex-col p-6" style={{ transform: "translateZ(30px)" }}>
                   <div className="border-b border-line pb-4">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ember">{m.role}</p>
+                    <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-ember">{m.role}</p>
                     <BlurText
                       text={m.name}
                       animateBy="letters"
                       delay={40}
-                      className="mt-1.5 font-display text-[22px] font-medium leading-none text-bone"
+                      className="mt-1.5 font-display text-[1.375rem] font-medium leading-none text-bone"
                     />
                   </div>
 
@@ -118,7 +118,7 @@ export function Team() {
                       text={m.text}
                       animateBy="words"
                       delay={28}
-                      className="mt-4 text-[14px] leading-relaxed text-muted"
+                      className="mt-4 text-[0.875rem] leading-relaxed text-muted"
                     />
                   ) : (
                     <>
@@ -126,16 +126,16 @@ export function Team() {
                         text={`“${m.text}”`}
                         animateBy="words"
                         delay={28}
-                        className="mt-4 font-display text-[16px] italic leading-relaxed text-bone/85"
+                        className="mt-4 font-display text-[1rem] italic leading-relaxed text-bone/85"
                       />
-                      <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+                      <p className="mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-muted">
                         — Jatin Prajapati, Founder &amp; CEO, Rudranex
                       </p>
                     </>
                   )}
 
                   {isLink && (
-                    <span className="mt-auto inline-flex items-center gap-2 pt-6 font-mono text-[12px] uppercase tracking-[0.16em] text-bone">
+                    <span className="mt-auto inline-flex items-center gap-2 pt-6 font-mono text-[0.75rem] uppercase tracking-[0.16em] text-bone">
                       Visit ankursingh.site
                       <span
                         aria-hidden

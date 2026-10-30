@@ -81,7 +81,7 @@ function GetInTouch({ onClick }: { onClick: (e: MouseEvent) => void }) {
       />
       <span
         ref={label}
-        className="relative font-mono text-[11px] uppercase tracking-[0.18em] text-bone"
+        className="relative font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-bone"
       >
         Get In Touch
       </span>
@@ -132,6 +132,21 @@ export function Nav() {
     }
   }, [open]);
 
+  // while the mobile menu is open: lock scroll, close on Escape, focus first link
+  useEffect(() => {
+    if (!open) return;
+    lenis?.stop();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    menuLinks.current?.querySelector("a")?.focus();
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      lenis?.start();
+    };
+  }, [open, lenis]);
+
   const go = (href: string) => (e: MouseEvent) => {
     e.preventDefault();
     setOpen(false);
@@ -145,8 +160,10 @@ export function Nav() {
       const padTop = parseFloat(getComputedStyle(el as Element).paddingTop) || 0;
       offset = padTop - 76 - 22;
     }
-    if (lenis) lenis.scrollTo(el as HTMLElement, { offset, duration: 1.4 });
-    else (el as HTMLElement).scrollIntoView({ behavior: "smooth" });
+    if (lenis) {
+      lenis.start(); // menu-open effect may still have scroll locked
+      lenis.scrollTo(el as HTMLElement, { offset, duration: 1.4 });
+    } else (el as HTMLElement).scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -162,7 +179,7 @@ export function Nav() {
         }}
       >
         <div className="container-x flex h-full items-center justify-between">
-          <a href="#top" onClick={go("#top")} className="font-display text-[18px] font-medium text-bone">
+          <a href="#top" onClick={go("#top")} className="font-display text-[1.125rem] font-medium text-bone">
             RUDRANEX
           </a>
 
@@ -174,7 +191,7 @@ export function Nav() {
                   key={link.href}
                   href={link.href}
                   onClick={go(link.href)}
-                  className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors duration-300"
+                  className="flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.18em] transition-colors duration-300"
                   style={{ color: isActive ? "var(--color-ember)" : "var(--color-faint)" }}
                   onMouseEnter={(e) => {
                     if (!isActive) e.currentTarget.style.color = "var(--color-bone)";
@@ -197,8 +214,9 @@ export function Nav() {
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[6px] lg:hidden"
           >
             <span
               className="block h-px w-5 bg-bone transition-transform duration-300"
@@ -220,7 +238,7 @@ export function Nav() {
                 <a
                   href={link.href}
                   onClick={go(link.href)}
-                  className="font-display text-[32px] text-bone"
+                  className="font-display text-[2rem] text-bone"
                 >
                   {link.label}
                 </a>

@@ -81,7 +81,7 @@ function LaunchButton() {
         className="pointer-events-none absolute h-[300px] w-[300px] rounded-full bg-ember"
         style={{ scale: 0 }}
       />
-      <span className="relative font-mono text-[12px] uppercase tracking-[0.18em] text-ink">
+      <span className="relative font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ink">
         {CTA.button} →
       </span>
     </a>
@@ -90,6 +90,12 @@ function LaunchButton() {
 
 export function CtaFooter() {
   const root = useRef<HTMLElement>(null);
+  const video = useRef<HTMLVideoElement>(null);
+
+  // autoplay is a motion effect — hold the static first frame under reduced motion
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) video.current?.pause();
+  }, []);
 
   useGSAP(
     () => {
@@ -121,8 +127,10 @@ export function CtaFooter() {
     <section id="contact" data-no-stack ref={root}>
       <div className="cta-block relative flex h-[90vh] items-center justify-center overflow-hidden">
         <video
+          ref={video}
           className="cta-video absolute inset-0 h-full w-full object-cover"
           src={VIDEO_1}
+          autoPlay
           muted
           loop
           playsInline
@@ -143,7 +151,7 @@ export function CtaFooter() {
           <div className="mt-10 flex justify-center">
             <LaunchButton />
           </div>
-          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-2 font-mono text-[12px] uppercase tracking-[0.14em] text-muted">
+          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-2 font-mono text-[0.75rem] uppercase tracking-[0.14em] text-muted">
             {CTA.contact.map((c) => {
               const href = contactHref(c);
               return href ? (
@@ -161,12 +169,12 @@ export function CtaFooter() {
       <footer className="site-footer border-t border-line">
         <div className="container-x grid gap-10 py-16 md:grid-cols-3">
           <div className="foot-col">
-            <p className="font-display text-[18px] text-bone">RUDRANEX</p>
-            <p className="mt-4 max-w-xs text-[14px] text-muted">{FOOTER.tagline}</p>
+            <p className="font-display text-[1.125rem] text-bone">RUDRANEX</p>
+            <p className="mt-4 max-w-xs text-[0.875rem] text-muted">{FOOTER.tagline}</p>
           </div>
           <div className="foot-col">
             <p className="eyebrow mb-4">EXPLORE</p>
-            <ul className="space-y-2.5 text-[14px]">
+            <ul className="space-y-2.5 text-[0.875rem]">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
                   <a href={l.href} className="text-muted transition-colors hover:text-bone">
@@ -178,7 +186,7 @@ export function CtaFooter() {
           </div>
           <div className="foot-col">
             <p className="eyebrow mb-4">CONNECT</p>
-            <ul className="space-y-2.5 text-[14px] text-muted">
+            <ul className="space-y-2.5 text-[0.875rem] text-muted">
               {FOOTER.connect.map((c) => {
                 const href = contactHref(c);
                 return (
@@ -197,7 +205,7 @@ export function CtaFooter() {
           </div>
         </div>
         <div className="border-t border-line">
-          <div className="container-x py-6 font-mono text-[11px] uppercase tracking-[0.16em] text-faint">
+          <div className="container-x py-6 font-mono text-[0.6875rem] uppercase tracking-[0.16em] text-faint">
             {FOOTER.copyright}
           </div>
         </div>

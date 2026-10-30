@@ -55,8 +55,8 @@ export function ExpandingGrid({ items, cols = 3 }: { items: ExpandItem[]; cols?:
               style={{ background: "linear-gradient(180deg, rgba(7,11,20,0.25), rgba(7,11,20,0.9))" }}
             />
             <div className="relative flex h-full flex-col justify-end p-6">
-              <h3 className="font-display text-[22px] text-bone">{it.title}</h3>
-              <p className="mt-2 max-h-0 overflow-hidden text-[14px] leading-relaxed text-bone/75 opacity-0 transition-all duration-[500ms] group-hover:mt-3 group-hover:max-h-40 group-hover:opacity-100">
+              <h3 className="font-display text-[1.375rem] text-bone">{it.title}</h3>
+              <p className="mt-2 max-h-0 overflow-hidden text-[0.875rem] leading-relaxed text-bone/75 opacity-0 transition-all duration-[500ms] group-hover:mt-3 group-hover:max-h-40 group-hover:opacity-100">
                 {it.description}
               </p>
             </div>

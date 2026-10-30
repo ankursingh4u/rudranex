@@ -97,9 +97,9 @@ export function Process() {
                   <span className="proc-ring absolute inset-0 rounded-full border border-ember" />
                 </span>
                 <div className="proc-text lg:mt-0">
-                  <span className="block font-mono text-[13px] text-ember">{s.num}</span>
+                  <span className="block font-mono text-[0.8125rem] text-ember">{s.num}</span>
                   <h3 className="h3 mt-3 font-display text-bone">{s.title}</h3>
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted">{s.body}</p>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{s.body}</p>
                 </div>
               </div>
             ))}
