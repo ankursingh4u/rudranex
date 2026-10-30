@@ -22,7 +22,14 @@ interface Packet {
  * data flow). Canvas-based, DPR-aware, pauses when off-screen, and renders a
  * single static frame under reduced motion.
  */
-export function NetworkBg({ className = "" }: { className?: string }) {
+export function NetworkBg({
+  className = "",
+  variant = "dark",
+}: {
+  className?: string;
+  /** "dark" = bright net for dark sections, "light" = navy net for light pages */
+  variant?: "dark" | "light";
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -30,6 +37,21 @@ export function NetworkBg({ className = "" }: { className?: string }) {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    const C =
+      variant === "light"
+        ? {
+            link: (a: number) => `rgba(37,99,235,${a * 0.22})`,
+            node: "rgba(23,42,90,0.45)",
+            packet: "rgba(37,99,235,0.85)",
+            glow: "rgba(37,99,235,0.5)",
+          }
+        : {
+            link: (a: number) => `rgba(61,125,255,${a * 0.32})`,
+            node: "rgba(200,218,255,0.7)",
+            packet: "rgba(140,182,255,0.95)",
+            glow: "rgba(61,125,255,0.9)",
+          };
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const rand = (a: number, b: number) => a + Math.random() * (b - a);
@@ -86,7 +108,7 @@ export function NetworkBg({ className = "" }: { className?: string }) {
           const dy = nodes[i].y - nodes[j].y;
           const d = Math.hypot(dx, dy);
           if (d < CONN) {
-            ctx.strokeStyle = `rgba(61,125,255,${(1 - d / CONN) * 0.32})`;
+            ctx.strokeStyle = C.link(1 - d / CONN);
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -98,7 +120,7 @@ export function NetworkBg({ className = "" }: { className?: string }) {
 
       // nodes
       for (const p of nodes) {
-        ctx.fillStyle = "rgba(200,218,255,0.7)";
+        ctx.fillStyle = C.node;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
@@ -115,9 +137,9 @@ export function NetworkBg({ className = "" }: { className?: string }) {
         }
         const x = A.x + (B.x - A.x) * pk.t;
         const y = A.y + (B.y - A.y) * pk.t;
-        ctx.shadowColor = "rgba(61,125,255,0.9)";
+        ctx.shadowColor = C.glow;
         ctx.shadowBlur = 10;
-        ctx.fillStyle = "rgba(140,182,255,0.95)";
+        ctx.fillStyle = C.packet;
         ctx.beginPath();
         ctx.arc(x, y, 2, 0, Math.PI * 2);
         ctx.fill();
@@ -168,7 +190,7 @@ export function NetworkBg({ className = "" }: { className?: string }) {
       window.removeEventListener("resize", onResize);
       clearTimeout(rt);
     };
-  }, []);
+  }, [variant]);
 
   return <canvas ref={canvasRef} className={className} aria-hidden />;
 }

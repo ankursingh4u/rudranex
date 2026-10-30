@@ -30,6 +30,36 @@ export function Marquee() {
           scrollTrigger: { trigger: wrap.current, start: "top bottom", end: "bottom top", scrub: true },
         },
       );
+
+      // scroll-velocity physics: the track skews with scroll speed and springs
+      // back to rest; the loop itself briefly runs faster while you fling
+      const skewSetter = gsap.quickSetter(track.current, "skewX", "deg");
+      const clampSkew = gsap.utils.clamp(-9, 9);
+      const proxy = { skew: 0 };
+      ScrollTrigger.create({
+        trigger: wrap.current,
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate: (self) => {
+          const skew = clampSkew(self.getVelocity() / -260);
+          if (Math.abs(skew) > Math.abs(proxy.skew)) {
+            proxy.skew = skew;
+            gsap.to(proxy, {
+              skew: 0,
+              duration: 0.9,
+              ease: "power3.out",
+              overwrite: true,
+              onUpdate: () => skewSetter(proxy.skew),
+            });
+            if (tween.current)
+              gsap.fromTo(
+                tween.current,
+                { timeScale: 1 + Math.abs(skew) * 0.35 },
+                { timeScale: 1, duration: 1.1, ease: "power2.out", overwrite: "auto" },
+              );
+          }
+        },
+      });
     },
     { scope: wrap },
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -11,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
  *  (pinned + sticky sections) so pins/sticky aren't broken by an ancestor
  *  transform. */
 export function SectionStacking() {
+  const pathname = usePathname(); // re-scan sections on every route change
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const triggers: ScrollTrigger[] = [];
@@ -34,7 +36,7 @@ export function SectionStacking() {
       clearTimeout(id);
       triggers.forEach((t) => t.kill());
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

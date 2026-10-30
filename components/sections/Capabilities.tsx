@@ -16,10 +16,20 @@ const IMGS = [
   "1552664730-d307ca884978", // Dedicated Teams
 ];
 
+const SLUGS = [
+  "custom-software",
+  "mobile-apps",
+  "cloud-devops",
+  "ai-automation",
+  "ui-ux-systems",
+  "dedicated-teams",
+];
+
 const items: ExpandItem[] = SERVICES.rows.map((r, i) => ({
   title: r.title,
   description: r.body,
   img: `https://images.unsplash.com/photo-${IMGS[i]}?auto=format&fit=crop&w=800&q=80`,
+  href: `/services/${SLUGS[i]}`,
 }));
 
 export function Capabilities() {
@@ -31,7 +41,7 @@ export function Capabilities() {
           The whole stack, under one <em>roof</em>.
         </LineReveal>
         <p className="body-lg mt-6 max-w-xl text-muted">
-          Six disciplines, one team — hover any card to expand it.
+          Six disciplines, one team — open any card to see exactly how it pays off.
         </p>
         <div className="mt-14">
           <ExpandingGrid items={items} cols={3} />

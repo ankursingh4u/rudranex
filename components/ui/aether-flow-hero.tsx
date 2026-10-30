@@ -20,6 +20,9 @@ class Particle {
   dx: number;
   dy: number;
   size: number;
+  /** impulse velocity (click shockwaves) — decays back to base drift */
+  ivx = 0;
+  ivy = 0;
 
   constructor(x: number, y: number, dx: number, dy: number, size: number) {
     this.x = x;
@@ -27,6 +30,17 @@ class Particle {
     this.dx = dx;
     this.dy = dy;
     this.size = size;
+  }
+
+  impulse(cx: number, cy: number, radius: number, force: number) {
+    const dx = this.x - cx;
+    const dy = this.y - cy;
+    const d = Math.hypot(dx, dy) || 1;
+    if (d < radius) {
+      const f = (1 - d / radius) * force;
+      this.ivx += (dx / d) * f;
+      this.ivy += (dy / d) * f;
+    }
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -51,8 +65,11 @@ class Particle {
       }
     }
 
-    this.x += this.dx;
-    this.y += this.dy;
+    // integrate base drift + decaying impulse (friction 0.94/frame)
+    this.ivx *= 0.94;
+    this.ivy *= 0.94;
+    this.x += this.dx + this.ivx;
+    this.y += this.dy + this.ivy;
     this.draw(ctx);
   }
 }
@@ -161,14 +178,22 @@ export default function AetherFlowHero() {
       mouse.x = null;
       mouse.y = null;
     };
+    // click/tap shockwave — radial impulse through the field, decays naturally
+    const onBlast = (e: PointerEvent) => {
+      const r = canvas.getBoundingClientRect();
+      if (e.clientY < r.top || e.clientY > r.bottom) return;
+      for (const p of particles) p.impulse(e.clientX, e.clientY - r.top, 320, 16);
+    };
     window.addEventListener("mousemove", onMove);
     window.addEventListener("mouseout", onOut);
+    window.addEventListener("pointerdown", onBlast);
     animate();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseout", onOut);
+      window.removeEventListener("pointerdown", onBlast);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
